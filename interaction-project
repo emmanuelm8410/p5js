@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>p5js Template</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.3/p5.js"></script>
+
+    <script>
+        var color;
+        var size;
+        var shape;
+        var transparency;
+        var opasity
+
+        function setup() {
+            createCanvas(800, 600);
+        }
+
+
+        function draw() {
+            size = random(1, 200); // the size of th chape would be a random 
+            color = random(1, 200); // the color would change at random 
+            transparency = random(1, 200);
+
+        }
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+        function mouseDragged() { // you would need to left click and hold it down to see what would happen
+            fill(color, color - 150, color + 150, transparency) // you coul se throught the shape as it draws 
+            ellipse(mouseX, mouseY, size, size)
+            background(1, 50); // the background would be set to black
+        }
+        ///////////////// ///////////////////////////////////////////////////////////
+        function mouseMoved() { //move the mouse and 
+            fill(color + 10, 250, color + 90, transparency)
+            rect(mouseX - 50, mouseY - 53, size, size)
+            background(1, 50);
+        }
+        //////////////////////////////////////////////////////////
+        function mousePressed() { //press the mouse and you'll see 4 lines connect with eachother 
+            stroke(color, 190, 50, transparency)
+            strokeWeight(50)
+            line(0, 0, mouseX, mouseY)
+            line(width, 0, mouseX, mouseY)
+            line(width, height, mouseX, mouseY)
+            line(0, height, mouseX, mouseY)
+            strokeWeight(1)
+        }
+
+        function keyTyped() {
+
+
+            if (key === 'c') { //press 'c' to clear everything 
+                clear();
+
+            }
+            else if (key === 'b') { // press b to change the color, and it's random
+                background(random(255), random(255), random(255));
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="code" class="container-fluid">
+        <script src="https://gist-it.appspot.com/github/emmanuelm8410@hstat.org/p5js/blob/master/interaction-project.html?footer=0"></script>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        $(window).bind("load", function() {
+            $('#code').before($('#defaultCanvas0').remove());
+        });
+    </script>
+</body>
+
+
+
+</html>
