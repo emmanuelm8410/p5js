@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>p5js Template</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.3/p5.js"></script>
+
+    <script>
+        var time1 // pick random time to display green bg
+        var time2 // count from 0 once enter is pressed to time1
+
+        function setup() {
+            createCanvas(800, 600);
+            background(255, 255, 0)
+
+            time1 = round(random(300, 800)) // pick random time within 300-800
+            time2 = 0 // time to start counting from
+
+            textAlign(CENTER)
+            textFont("Trebuchet MS")
+            textSize(85)
+            textStyle(BOLD)
+            text("Reaction Test", width / 2, height / 3)
+            textSize(73)
+            textStyle(NORMAL)
+            text("Press ENTER to begin", width / 2, height / 1.6)
+            textSize(30)
+            text("Player 1: Key A", width / 2, 500)
+            text("Player 2: Key L", width / 2, 550)
+        }
+
+        function draw() {
+            console.log("time1: " + time1) //keeping track of the time 
+            console.log("time2: " + time2)
+
+            time2 = constrain(time2, 0, time1) // prevent time2 from increasing
+
+            if (keyCode == 13) {
+                time2 += 2
+                background(255, 100, 0, 100)
+                textSize(60)
+                textStyle(BOLD) // for the text structure 
+                text("WAIT FOR THE ", width / 2, height / 2.5)
+                text("GREEN BACKGROUND!", width / 2, height / 1.75)
+            }
+
+            if (time2 >= time1) {
+                background(0, 255, 100)
+                text("Press the key!", width / 2, height / 2)
+                if (keyCode == 65) {
+                    strokeWeight(5)
+                    background(0, 80, 120)
+                    text("Player 1 wins!", width / 2, height / 2.5)
+                    text("Ooooo you're fast. ", width / 2, height / 1.75)
+                    noLoop() // 
+                }
+                else if (keyCode == 76) {
+                    background(0, 80, 120)
+                    text("Player 2 wins!", width / 2, height / 2.5)
+                    text("You're a speed demon!! ", width / 2, height / 1.75)
+                    noLoop()
+                }
+            }
+
+            if ((keyCode == 65 || keyCode == 76) && time2 < time1) { // when 'a' or 'l' is pressed then the text of whoever won appears
+                background(255, 0, 0)
+                text("You pressed too early!", width / 2, height / 2.5) // if there is a key pressed to early then this text would appear
+                text("Press ENTER to try again!", width / 2, height / 1.75)
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="code" class="container-fluid">
+        <script src="https://gist-it.appspot.com/github/emmanuelm8410/p5js/blob/master/conditionals-project.html?footer=0"></script>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        $(window).bind("load", function() {
+            $('#code').before($('#defaultCanvas0').remove());
+        });
+    </script>
+</body>
+
+</html>
