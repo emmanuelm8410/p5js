@@ -7,20 +7,16 @@
     
     <script>
     
-      
         var x; 
         var y;
         var musicOrNote = "music";
         var musics = [];  
-       
-
+        
         function setup() {
             createCanvas(500, 500);  
             background(random(150), random(255), random(255)); //creates a random colored background
             frameRate();  
-            
-        }
-
+           }
         function draw() {
             for (var i = 0; i < musics.length; i++) { 
                 musics[i].move();
