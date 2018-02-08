@@ -33,7 +33,7 @@
         }
         function drawMusic() { //this is where one note is made 
             strokeWeight(3);  
-            stroke(0, random(255), random(255)); 
+            stroke(0, random(215), random(255)); 
             rect(mouseX + 7, mouseY - 55, 50, 10);
             line(mouseX + 7, mouseY - 45, mouseX + 7, mouseY + 5);
             line(mouseX + 57, mouseY - 45, mouseX + 57, mouseY + 5);
@@ -60,7 +60,7 @@
             background(random(215), random(255), random(255));  
         }
 
-        function mouseDragged() {
+        function mouseDragged() { //when you hold down the mouse and drag it then 
             drawMusic2();  
         }
         function Music() {
@@ -71,7 +71,7 @@
                 this.y += 5; 
                 this.speed = (0,3)
             }
-            this.display = function() {
+            this.display = function() { //the thickness of the line 
                 strokeWeight(2);  
                 stroke(0);  
                 line(this.x, this.y, this.x + 30, this.y + 2);
